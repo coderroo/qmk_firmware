@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "keymap_german.h" 
 
 uint16_t copy_paste_timer;
 
@@ -46,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [QWERTY] = LAYOUT(
-      KC_ESC,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_PIPE,
-      KC_LSFT, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LCTL, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+      KC_ESC,  DE_Q,   DE_W,   DE_E,   DE_R,   DE_T,                                         DE_Y,    DE_U,    DE_I,    DE_O,    DE_P,    DE_PIPE,
+      KC_LSFT, DE_A,   DE_S,   DE_D,   DE_F,   DE_G,                                         DE_H,    DE_J,    DE_K,    DE_L,    DE_SCLN, DE_QUOT,
+      KC_LCTL, DE_Z,   DE_X,   DE_C,   DE_V,   DE_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_SLSH, DE_MINS,
               KC_LGUI, KC_LALT, MO(LOWER), MT(MOD_LSFT, KC_SPC), MT(MOD_LALT, KC_ENT), KC_BSPC, LT(NAV, KC_SPC), MO(RAISE), LT(UML, KC_TAB), KC_RALT
     ),
 /*
@@ -66,9 +67,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [LOWER] = LAYOUT(
-      _______, _______, _______, KC_VOLU, _______, _______,                                     KC_SLSH, KC_7,    KC_8,    KC_9, KC_MINS, _______,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     KC_ASTR, KC_4,    KC_5,    KC_6, KC_COMM, KC_PLUS,
-      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, _______, KC_0,    KC_1,    KC_2,    KC_3, KC_EQL,  _______,
+      _______, _______, _______, KC_VOLU, _______, _______,                                     DE_SLSH, DE_7,    DE_8,    DE_9, DE_MINS, _______,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     DE_ASTR, DE_4,    DE_5,    DE_6, DE_COMM, DE_PLUS,
+      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, _______, DE_0,    DE_1,    DE_2,    DE_3, DE_EQL,  _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
@@ -86,9 +87,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [RAISE] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_UNDS, ALGR(KC_5),_______,_______,KC_BSLS,
-      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+      _______, DE_EXLM, DE_AT,   DE_LCBR, DE_RCBR, DE_PIPE,                                     _______, DE_UNDS, ALGR(DE_5),_______,_______,DE_BSLS,
+      _______, DE_HASH, DE_DLR,  DE_LPRN, DE_RPRN, DE_GRV,                                      DE_PLUS, DE_MINS, DE_SLSH, DE_ASTR, DE_PERC, DE_QUOT,
+      _______, DE_PERC, DE_CIRC, DE_LBRC, DE_RBRC, DE_TILD, _______, _______, _______, _______, DE_AMPR, DE_EQL,  DE_COMM, DE_DOT,  DE_SLSH, DE_MINS,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
@@ -147,8 +148,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [UML] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                                     _______, ALGR(KC_Y), _______, ALGR(KC_P), _______, _______,
+      /*_______, _______, _______, _______, _______, _______,                                     _______, ALGR(KC_Y), _______, ALGR(KC_P), _______, _______,
       _______, ALGR(KC_Q), ALGR(KC_S), _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______*/
+    	_______, _______, _______, _______, _______, _______,                                     _______, DE_UE, _______, DE_OE, _______, _______,
+      _______, DE_AE, DE_SS, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
