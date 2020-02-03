@@ -36,21 +36,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * | ESC    |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  | \   |
+ * | ESC    |   Q  |   W  |   E  |   R  |   T  |                              |   Z  |   U  |   I  |   O  |   P  |  | \   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | LSFT   |   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LCTL   |   Z  |   X  |   C  |   V  |   B  | CCCV |      |  | Del  |Leader|   N  |   M  | ,  < | . >  | /  ? |  - _   |
+ * | LCTL   |   Y  |   X  |   C  |   V  |   B  | CCCV |      |  | Del  |Leader|   N  |   M  | ,  < | . >  | /  ? |  - _   |
  * `----------------------+------+------+------+------+      |  |------+------+------+------+------+----------------------'
- *                        | GUI  | Alt  |      | Space| Enter|  | Bspc | Space|      | Tab  | AltGr|
+ *                        | GUI  | Alt  |      | Space| Enter|  | Bspc | Enter|      | Tab  | AltGr|
  *                        |      |      | Lower| Shift| Alt  |  |      | Nav  | Raise|      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [QWERTY] = LAYOUT(
-      KC_ESC,  DE_Q,   DE_W,   DE_E,   DE_R,   DE_T,                                         DE_Y,    DE_U,    DE_I,    DE_O,    DE_P,    DE_PIPE,
-      KC_LSFT, DE_A,   DE_S,   DE_D,   DE_F,   DE_G,                                         DE_H,    DE_J,    DE_K,    DE_L,    DE_SCLN, DE_QUOT,
-      KC_LCTL, DE_Z,   DE_X,   DE_C,   DE_V,   DE_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_SLSH, DE_MINS,
-              KC_LGUI, KC_LALT, MO(LOWER), MT(MOD_LSFT, KC_SPC), MT(MOD_LALT, KC_ENT), KC_BSPC, LT(NAV, KC_SPC), MO(RAISE), LT(UML, KC_TAB), KC_RALT
+      KC_ESC,  DE_Q,   DE_W,   DE_E,   DE_R,   DE_T,                                         DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,    KC_PIPE,
+      KC_LSFT, DE_A,   DE_S,   DE_D,   DE_F,   DE_G,                                         DE_H,    DE_J,    DE_K,    DE_L,    KC_SCLN, KC_QUOT,
+      KC_LCTL, DE_Y,   DE_X,   DE_C,   DE_V,   DE_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  DE_N,    DE_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+              KC_LGUI, KC_LALT, MO(LOWER), MT(MOD_LSFT, KC_SPC), MT(MOD_LALT, KC_ENT), KC_BSPC, LT(NAV, KC_ENT), MO(RAISE), LT(UML, KC_TAB), KC_RALT
     ),
 /*
  * Lower Layer: Numpad, Media
@@ -67,9 +67,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [LOWER] = LAYOUT(
-      _______, _______, _______, KC_VOLU, _______, _______,                                     DE_SLSH, DE_7,    DE_8,    DE_9, DE_MINS, _______,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     DE_ASTR, DE_4,    DE_5,    DE_6, DE_COMM, DE_PLUS,
-      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, _______, DE_0,    DE_1,    DE_2,    DE_3, DE_EQL,  _______,
+      _______, _______, _______, KC_VOLU, _______, _______,                                     KC_SLSH, DE_7,    DE_8,    DE_9, KC_MINS, _______,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     KC_ASTR, DE_4,    DE_5,    DE_6, KC_COMM, KC_PLUS,
+      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, _______, DE_0,    DE_1,    DE_2,    DE_3, KC_EQL,  _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
@@ -87,9 +87,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [RAISE] = LAYOUT(
-      _______, DE_EXLM, DE_AT,   DE_LCBR, DE_RCBR, DE_PIPE,                                     _______, DE_UNDS, ALGR(DE_5),_______,_______,DE_BSLS,
-      _______, DE_HASH, DE_DLR,  DE_LPRN, DE_RPRN, DE_GRV,                                      DE_PLUS, DE_MINS, DE_SLSH, DE_ASTR, DE_PERC, DE_QUOT,
-      _______, DE_PERC, DE_CIRC, DE_LBRC, DE_RBRC, DE_TILD, _______, _______, _______, _______, DE_AMPR, DE_EQL,  DE_COMM, DE_DOT,  DE_SLSH, DE_MINS,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_UNDS, ALGR(DE_5),_______,_______,KC_BSLS,
+      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
+      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
