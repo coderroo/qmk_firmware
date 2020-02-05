@@ -35,21 +35,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * | ESC    |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  | \   |
+ * | ESC    |   Q  |   W  |   E  |   R  |   T  |                              |   Z  |   U  |   I  |   O  |   P  |  | \   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | LSFT   |   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LCTL   |   Z  |   X  |   C  |   V  |   B  | CCCV |      |  | Del  |Leader|   N  |   M  | ,  < | . >  | /  ? |  - _   |
+ * | LCTL   |   Y  |   X  |   C  |   V  |   B  | CCCV |      |  | Del  |Leader|   N  |   M  | ,  < | . >  | /  ? |  - _   |
  * `----------------------+------+------+------+------+      |  |------+------+------+------+------+----------------------'
- *                        | GUI  | Alt  |      | Space| Enter|  | Bspc | Space|      | Tab  | AltGr|
- *                        |      |      | Lower| Shift| Alt  |  |      | Nav  | Raise|      |      |
+ *                        | GUI  | Alt  |      | Space| Enter|  | Bspc | Ent  |      | Tab  | AltGr|
+ *                        |      |      | Lower| Shift| Alt  |  |      | Nav  | Raise|Umlaut|      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [QWERTY] = LAYOUT(
-      KC_ESC,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_PIPE,
+      KC_ESC,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,    KC_PIPE,
       KC_LSFT, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LCTL, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
-              KC_LGUI, KC_LALT, MO(LOWER), MT(MOD_LSFT, KC_SPC), MT(MOD_LALT, KC_ENT), KC_BSPC, LT(NAV, KC_SPC), MO(RAISE), LT(UML, KC_TAB), KC_RALT
+      KC_LCTL, KC_Y,   KC_X,   KC_C,   KC_V,   KC_B,   KC_CCCV,   XXXXXXX, KC_DEL, KC_LEAD,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+              KC_LGUI, KC_LALT, MO(LOWER), MT(MOD_LSFT, KC_SPC), MT(MOD_LALT, KC_ENT), KC_BSPC, LT(NAV, KC_ENT), MO(RAISE), LT(UML, KC_TAB), KC_RALT
     ),
 /*
  * Lower Layer: Numpad, Media
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |                              | PgDn | Left | Down | Right|      | CapsLk |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |      |      |        |
+ * |        |      |      | MBt1 | MBt1 | MBt1 |      |      |  |      |      | MLeft| Mdown| MUp  |MRight|      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      | Lower|      |      |  |      | Nav  | Raise|      |      |
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_SLCK,
       _______, _______, _______, _______, _______, _______,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_CAPS,
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, KC_MS_BTN1, KC_MS_BTN3, KC_MS_BTN2, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [UML] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                     _______, ALGR(KC_Y), _______, ALGR(KC_P), _______, _______,
-      _______, ALGR(KC_Q), ALGR(KC_S), _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
+      _______, ALGR(KC_Q), ALGR(KC_S), _______, _______, _______,                               _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
@@ -207,28 +207,28 @@ void matrix_scan_user(void) {
             SEND_STRING("`` " SS_TAP(X_LEFT) SS_TAP(X_LEFT));
         }
         SEQ_ONE_KEY(KC_P) { // Invoke Password Manager
-            SEND_STRING(SS_LCTRL(SS_LALT("\\")));
+            SEND_STRING(SS_LCTRL(SS_LALT("")));
         }
         SEQ_ONE_KEY(KC_S) { // Windows screenshot
             SEND_STRING(SS_LGUI("\nS"));
         }
-        SEQ_TWO_KEYS(KC_F, KC_P) { // Fusion Projection prefix
-            SEND_STRING("[Projection] ");
+        SEQ_TWO_KEYS(KC_F, KC_P) { // 
+            SEND_STRING("");
         }
         SEQ_TWO_KEYS(KC_E, KC_S) { // Email splitkb
-            SEND_STRING("thomas@splitkb.com");
+            SEND_STRING("");
         }
         SEQ_TWO_KEYS(KC_E, KC_P) { // Email personal
-            SEND_STRING("mail@thomasbaart.nl");
+            SEND_STRING("");
         }
         SEQ_TWO_KEYS(KC_S, KC_D) { // Splitkb documentation
-            SEND_STRING("https://docs.splitkb.com/");
+            SEND_STRING("");
         }
         SEQ_TWO_KEYS(KC_S, KC_V) { // Splitkb VAT number
-            SEND_STRING("NL210593349B01");
+            SEND_STRING("");
         }
         SEQ_THREE_KEYS(KC_S, KC_D, KC_K) { // Splitkb Kyria build log
-            SEND_STRING("https://docs.splitkb.com/docs/kyria-build-log/");
+            SEND_STRING("");
         }
         SEQ_TWO_KEYS(KC_B, KC_C) { // Discord bongocat
             SEND_STRING(":bongocat:\n");
