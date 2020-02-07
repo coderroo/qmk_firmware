@@ -3,29 +3,29 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x6F75 // OU
-#define PRODUCT_ID      0x7267 // RG
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x0B7F
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    1upkeyboards
-#define PRODUCT         1UP RGB Underglow PCB
-#define DESCRIPTION     60% keyboard with RGB underglow
+#define MANUFACTURER    Worldspawn00
+#define PRODUCT         TKL30
+#define DESCRIPTION     A 3-row TKL-style keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 5
+#define MATRIX_ROWS 3
 #define MATRIX_COLS 15
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { D0, D1, D2, D3, D5 }
-#define MATRIX_COL_PINS { F0, F1, E6, C7, C6, B7, D4, B1, B0, B5, B4, D7, D6, B3, F4 }
+#define MATRIX_ROW_PINS { D2, B5, F4 }
+#define MATRIX_COL_PINS { D3, D1, D0, D4, F7, C6, B1, D7, B3, E6, B2, B4, B6, F6, E5 }
 #define UNUSED_PINS
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
 /* number of backlight levels */
-#define BACKLIGHT_PIN B6
+
 #ifdef BACKLIGHT_PIN
-#define BACKLIGHT_LEVELS 5
+#define BACKLIGHT_LEVELS 1
 #endif
 
 /* Set 0 if debouncing isn't needed */
@@ -37,11 +37,12 @@
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGB_DI_PIN E2
+#define RGB_DI_PIN B1
 #ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 16
+#define RGBLED_NUM 1
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #endif
+
